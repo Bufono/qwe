@@ -1,0 +1,67 @@
+/*var catMain = document.getElementById('CatMain');
+var catChild = document.getElementsByClassName('CatChild');
+var cT1 = document.getElementById('CatText1');
+var cT2 = document.getElementById('CatText2');
+var cT3 = document.getElementById('CatText3');
+var cT4 = document.getElementById('CatText4');
+var cT5 = document.getElementById('CatText5');
+var cT6 = document.getElementById('CatText6');*/
+var cC1 = document.getElementById('CatChild1');
+var cC2 = document.getElementById('CatChild2');
+var cC3 = document.getElementById('CatChild3');
+var cC4 = document.getElementById('CatChild4');
+var cC5 = document.getElementById('CatChild5');
+var cC6 = document.getElementById('CatChild6');
+var cC7 = document.getElementById('CatChild7');
+var cC8 = document.getElementById('CatChild8');
+var cC9 = document.getElementById('CatChild9');
+var cC = [cC1, cC2, cC3, cC4, cC5, cC6, cC7, cC8, cC9];
+/*var log = document.getElementById('log');*/
+function size () {
+/*imgH = Math.floor(document.body.clientHeight/3);*/
+imgW = Math.floor(document.body.clientWidth/9 - 6);
+imgWmin = (document.body.clientWidth-500)/8-7 + "px";
+	if(imgW < 100){
+window.location ='http://mir-orhidei.ru/shop/';
+		/*
+			Адаптивный дизайн, ну по крайней мере задумывался
+
+		imgW = imgW*3 + 12;
+		imgW += "px"
+		imgH += "px"
+
+		for (var i = 0; i < catChild.length; i++) {
+			catChild[i].style.width = imgW;
+			catChild[i].style.height = imgH;
+		};
+		imgWmin = (document.body.clientWidth-500)/8-7 + "px";
+		*/
+	} else{
+		imgW += "px"
+		for (var i = 0; i < cC.length; i++) {
+			cC[i].style.width = imgW;
+		};
+		imgWmin = (document.body.clientWidth-500)/8-7 + "px";
+	}
+}
+function Cin(event) {
+	event.target.style.width = "500px";
+	event.target.style.height = "500px";
+	last = event.target.id.length - 1;
+	elemInArray = event.target.id.charAt(last) - 1;
+	for (var i = 0; i < cC.length; i++) {
+		if(i != elemInArray){
+			cC[i].style.width = imgWmin;
+		}
+		else {
+		}
+	};
+}
+function Cout(event) {
+	event.target.style.width = imgW;
+	event.target.style.height = "300px";
+	for (i=0; i<cC.length; i++){
+	cC[i].style.width = imgW;
+	}
+}
+size();
